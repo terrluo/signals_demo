@@ -18,11 +18,19 @@ import logging
 
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.dispatch import receiver, Signal
 
 from app1.models import App
 
 logger = logging.getLogger(__name__)
+
+# 定义一个信号
+work_done = Signal(providing_args=['path', 'time'])
+
+
+@receiver(work_done, sender=User)
+def print_signal_info(sender, **kwargs):
+    logger.info('我在%s时间收到来自%s的信号，请求url为%s', kwargs['time'], sender, kwargs['path'])
 
 
 def create_app_v1(sender, instance, **kwargs):
