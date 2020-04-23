@@ -57,13 +57,13 @@ def create_app_v1(sender, instance, **kwargs):
 post_save.connect(receiver=create_app_v1, sender=User)
 
 
-"""
-关联sender和receiver还可以通过@receiver装饰器来完成
-
-两个参数, signal可以是元组或者列表, 或者单个信号, **kwargs是位置参数
-def receiver(signal, **kwargs)
-"""
 @receiver(post_save, sender=User)
 def create_app_v2(sender, instance, **kwargs):
+    """
+    关联sender和receiver还可以通过@receiver装饰器来完成
+
+    两个参数, signal可以是元组或者列表, 或者单个信号, **kwargs是位置参数
+    def receiver(signal, **kwargs)
+    """
     logger.info('create_app_v2 收到 post_save 信号')
     App.objects.create(create_by=instance)

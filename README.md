@@ -1,4 +1,5 @@
 # signals_demo
+![actions_img]
 signals 使用实例
 
 ## 注意事项
@@ -26,3 +27,5 @@ class App1Config(AppConfig):
     def ready(self):
         import app1.signals  # noqa
 ```
+
+[actions_img]:https://github.com/Terrenceluo/signals_demo/workflows/Django%20CI/badge.svg
