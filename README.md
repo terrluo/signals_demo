@@ -29,4 +29,4 @@ class App1Config(AppConfig):
         import app1.signals  # noqa
 ```
 
-[actions_img]:https://github.com/Terrenceluo/signals_demo/workflows/Django%20CI/badge.svg
+[actions_img]:https://github.com/2375452377/signals_demo/workflows/Django%20CI/badge.svg
